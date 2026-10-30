@@ -89,6 +89,47 @@ textarea{min-height:120px;resize:vertical}
 .btn.li{background:var(--sheet);color:var(--fg);border:1px solid var(--line)}.btn.li svg{fill:var(--li)}
 .btn.pdf{margin-top:14px;background:var(--sheet);color:var(--ink);border:1.5px solid var(--ink)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.pdf{color:var(--fg);border-color:var(--line)}}
+.btn.save{background:var(--sheet);color:var(--fg);border:1px solid var(--line)}
+
+/* Más allá del CV: banners que abren un panel a pantalla completa */
+section.exp{margin-top:36px;display:grid;gap:12px}
+section.exp h2{margin-bottom:4px}
+.banner{position:relative;display:grid;gap:4px;padding:22px 20px 18px;border-radius:16px;color:#fff;text-decoration:none;overflow:hidden;min-height:150px;align-content:end;-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.banner:active{transform:scale(.99)}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,32,.78),rgba(10,18,32,.15) 70%);z-index:0}
+.banner>*{position:relative;z-index:1}
+.banner.fabrica,.p-head.fabrica{background:#b4541f linear-gradient(135deg,#d9822b,#8f3a14)}
+.banner.exps,.p-head.exps{background:#1d3150 linear-gradient(135deg,#2c4a78,#16253d)}
+.banner[style*="--img"]{background:#1d3150 var(--img) 60% 48%/cover;min-height:300px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.85}
+.b-title{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15;text-wrap:balance}
+.b-sub{font-size:15px;opacity:.9}
+.b-go{margin-top:8px;font-weight:700;font-size:15px}
+
+.panel{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.panel-bar{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+.back{color:var(--fg);text-decoration:none;font-weight:700;font-size:16px;display:inline-block;padding:6px 0}
+.panel-in{max-width:720px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:20px}
+.p-head{color:#fff;border-radius:16px;padding:24px 20px;display:grid;gap:6px}
+.p-head h2{color:#fff}
+.p-head p{margin:4px 0 0;opacity:.92;font-size:15px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery figure{margin:0;background:var(--sheet);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gallery figure.wide{grid-column:1/-1}
+.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figure.tall img{aspect-ratio:3/4}
+.xp .gallery{margin-top:6px}
+.gallery figcaption{font-size:13px;color:var(--muted);padding:8px 10px}
+.xp{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:10px}
+.xp h3{font-size:18px;line-height:1.25}
+.xp p{margin:0;color:var(--fg)}
+.xp-meta{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.tag.win{background:#fff4d6;color:#7a5200}
+.more{color:var(--ink);font-weight:700;text-decoration:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .more{color:var(--fg)}}
+body.locked{overflow:hidden}
+
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .note{font-size:13px;color:var(--muted);margin:0}
 .ok{font-size:14px;color:var(--wa-ink);font-weight:500;margin:0}
@@ -122,6 +163,23 @@ textarea{min-height:120px;resize:vertical}
     <a href="https://enjambreer.vercel.app/" target="_blank" rel="noopener">Ver proyecto ENJAMBRE ↗</a>
   </div>
 
+  <section class="exp" aria-labelledby="h-exp">
+    <h2 id="h-exp">Más allá del CV</h2>
+
+    <a class="banner fabrica" href="#la-fabrica" style="--img:url(fotos/fabrica/petropack-impresion.jpg)">
+      <span class="kicker">Comunidad</span>
+      <span class="b-title">La Fábrica Podcast</span>
+      <span class="b-sub">Turismo industrial por Petropack, FACORSA y SOTIC</span>
+      <span class="b-go">Ver fotos ›</span>
+    </a>
+
+    <a class="banner exps" href="#experiencias" style="--img:url(fotos/ciudadania/prototipo.jpg)">
+      <span class="kicker">Experiencias</span>
+      <span class="b-title">Desafío CiudadanIA, Rally de Innovación y Santander X Explorer</span>
+      <span class="b-go">Ver más ›</span>
+    </a>
+  </section>
+
   <section class="contact" id="contacto" aria-labelledby="h-contacto">
     <div class="contact-head">
       <h2 id="h-contacto">Hablemos</h2>
@@ -145,6 +203,8 @@ textarea{min-height:120px;resize:vertical}
         <span class="go" aria-hidden="true">›</span>
       </a></li>
     </ul>
+
+    <a class="btn save" href="facundo-alem-briozzo.vcf" download="Facundo Alem Briozzo.vcf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-4A3.5 3.5 0 0 0 4 17.5V19M9.5 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 8v6m3-3h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Guardar mi contacto en el celular</a>
 
     <div class="card">
       <h3>O dejame un mensaje</h3>
@@ -178,6 +238,88 @@ textarea{min-height:120px;resize:vertical}
     </div>
   </section>
 </main>
+
+<div class="panel" id="la-fabrica" role="dialog" aria-modal="true" aria-labelledby="t-fabrica" hidden>
+  <div class="panel-bar"><a class="back" href="#" data-close>‹ Volver</a></div>
+  <div class="panel-in">
+    <header class="p-head fabrica">
+      <span class="kicker">Comunidad</span>
+      <h2 id="t-fabrica">La Fábrica Podcast</h2>
+      <p>Formo parte de la comunidad de La Fábrica Podcast. Una vez por mes hacemos turismo industrial: recorremos grandes empresas por dentro, conocemos sus procesos, su historia y cómo compiten, y en cada visita sumo contactos nuevos.</p>
+    </header>
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Paraná, Entre Ríos</span><span class="tag">Envases flexibles</span></div>
+      <h3>Petropack</h3>
+      <p>Fabrica envases plásticos flexibles, como bobinas y bolsas, para alimentos, bebidas, alimento para mascotas, higiene y agro. Fue la primera empresa argentina en procesar polietileno verde, un plástico hecho a partir de caña de azúcar.</p>
+    <div class="gallery">
+      <figure class="wide"><img src="fotos/fabrica/petropack-envases.jpg" alt="Envases de alimento para mascotas en una cabina de control de color" loading="lazy" decoding="async"><figcaption>Control de color de los envases impresos</figcaption></figure>
+      <figure class="tall"><img src="fotos/fabrica/petropack-extrusion.jpg" alt="Torre de extrusión de film plástico soplado" loading="lazy" decoding="async"><figcaption>Extrusión del film</figcaption></figure>
+      <figure class="tall"><img src="fotos/fabrica/petropack-impresion.jpg" alt="Máquina impresora con bobinas de envases rojos" loading="lazy" decoding="async"><figcaption>Impresión de bobinas</figcaption></figure>
+    </div>
+    </article>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Santa Fe</span><span class="tag">Radiadores</span></div>
+      <h3>FACORSA</h3>
+      <p>Empresa familiar santafesina con más de 60 años de historia. Fabrica radiadores e intercambiadores de calor para autos, maquinaria agrícola y vial, minería e industria.</p>
+    <div class="gallery">
+      <figure class="tall"><img src="fotos/fabrica/facorsa-panal.jpg" alt="Primer plano de las aletas de cobre de un radiador" loading="lazy" decoding="async"><figcaption>El panal de cobre de un radiador</figcaption></figure>
+      <figure class="tall"><img src="fotos/fabrica/facorsa-radiadores.jpg" alt="Radiadores apilados en la nave de producción" loading="lazy" decoding="async"><figcaption>Radiadores en la planta</figcaption></figure>
+    </div>
+    </article>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Sauce Viejo, Santa Fe</span><span class="tag">Metalmecánica</span></div>
+      <h3>SOTIC</h3>
+      <p>Empresa metalmecánica con más de 40 años diseñando, fabricando y montando sistemas de almacenamiento industrial: desde racks y estanterías hasta depósitos automatizados con carros autónomos. Trabajan en ella más de 200 personas.</p>
+    <div class="gallery">
+      <figure class="wide"><img src="fotos/fabrica/sotic-entrada.jpg" style="object-position:center 70%" alt="Entrada de la planta de SOTIC con su logo" loading="lazy" decoding="async"><figcaption>Llegando a la planta de SOTIC</figcaption></figure>
+      <figure class="tall"><img src="fotos/fabrica/sotic-shuttle.jpg" alt="Carro autónomo de SOTIC dentro de un rack de almacenamiento" loading="lazy" decoding="async"><figcaption>Carro autónomo dentro de un rack</figcaption></figure>
+      <figure class="tall"><img src="fotos/fabrica/sotic-recorrida.jpg" alt="Visitantes con casco y chaleco recorren la nave de SOTIC" loading="lazy" decoding="async"><figcaption>Recorriendo la nave con casco y chaleco</figcaption></figure>
+    </div>
+    </article>
+  </div>
+</div>
+
+<div class="panel" id="experiencias" role="dialog" aria-modal="true" aria-labelledby="t-exp" hidden>
+  <div class="panel-bar"><a class="back" href="#" data-close>‹ Volver</a></div>
+  <div class="panel-in">
+    <header class="p-head exps">
+      <span class="kicker">Experiencias</span>
+      <h2 id="t-exp">Proyectos y competencias</h2>
+    </header>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Desafío CiudadanIA · 2026</span><span class="tag">6 semanas</span><span class="tag win">1.º puesto</span></div>
+      <h3>EstacionAR: estacionamiento inteligente con IA</h3>
+      <p>Seis semanas de competencia para resolver un problema real de Concepción del Uruguay con inteligencia artificial. Propusimos EstacionAR, una plataforma que usa cámaras y visión por computadora para mostrar en tiempo real dónde hay lugar para estacionar. Con la misma red de cámaras, los semáforos se pueden adaptar a la demanda y el municipio tiene un tablero para monitorear el tránsito.</p>
+      <p>Lo defendimos ante un jurado de siete personas, entre empresarios e integrantes de la municipalidad, y <strong>salimos primeros</strong>.</p>
+    <div class="gallery">
+      <figure class="wide"><img src="fotos/ciudadania/grupo.jpg" alt="Foto grupal de los equipos del Desafío CiudadanIA frente a la pantalla del evento" loading="lazy" decoding="async"><figcaption>Equipos y organizadoras del Desafío CiudadanIA</figcaption></figure>
+      <figure class="tall"><img src="fotos/ciudadania/prototipo.jpg" style="object-position:center 30%" alt="Facundo presenta con micrófono frente a la pantalla con el mapa de EstacionAR" loading="lazy" decoding="async"><figcaption>Mostrando el prototipo en vivo</figcaption></figure>
+      <figure class="tall"><img src="fotos/ciudadania/presentando.jpg" style="object-position:center 30%" alt="Facundo explica el proyecto con micrófono ante el jurado" loading="lazy" decoding="async"><figcaption>La defensa ante el jurado</figcaption></figure>
+      <figure class="tall"><img src="fotos/ciudadania/defensa-equipo.jpg" style="object-position:center 40%" alt="Facundo habla al público junto a una compañera de equipo" loading="lazy" decoding="async"><figcaption>Presentando junto a mi equipo</figcaption></figure>
+      <figure class="tall"><img src="fotos/ciudadania/cierre.jpg" style="object-position:center 45%" alt="Foto grupal de cierre del Desafío CiudadanIA" loading="lazy" decoding="async"><figcaption>Cierre del Desafío</figcaption></figure>
+    </div>
+    </article>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Rally de Innovación</span><span class="tag">28 horas</span><span class="tag win">1.º local · 8.º nacional</span></div>
+      <h3>ENJAMBRE: decisiones rápidas después de una catástrofe</h3>
+      <p>Veintiocho horas seguidas de competencia para resolver cómo usar y optimizar los recursos después de una catástrofe. Como líder del equipo, diseñamos ENJAMBRE, un sistema de apoyo a decisiones que coordina drones especializados, inteligencia artificial y unidades móviles para que Defensa Civil y los equipos de rescate actúen más rápido y con la información correcta.</p>
+      <p>Quedamos <strong>primeros a nivel local y octavos a nivel nacional</strong> entre 300 equipos.</p>
+
+      <a class="more" href="https://enjambreer.vercel.app/" target="_blank" rel="noopener">Ver el proyecto ↗</a>
+    </article>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag">Santander X Explorer · 2026</span><span class="tag">En curso</span></div>
+      <h3>TRAZER: eficiencia energética que se paga con el ahorro</h3>
+      <p>En el programa de emprendimiento Santander X Explorer estoy desarrollando en equipo un modelo para que las industrias hagan mejoras de eficiencia energética sin invertir de entrada: un fondo paga la obra y se recupera con parte del ahorro medido. Hoy lo estamos validando con empresarios reales.</p>
+
+    </article>
+  </div>
+</div>
 
 <div class="fab" id="fab"><a class="btn" href="#contacto">Contactame</a></div>
 
@@ -219,11 +361,33 @@ textarea{min-height:120px;resize:vertical}
   });
   update();
 
+  // Paneles a pantalla completa: se abren con #la-fabrica / #experiencias, así el botón "atrás" del celular los cierra
+  var panels=document.querySelectorAll(".panel"),opener=null;
+  function route(){
+    var id=location.hash.slice(1),open=null;
+    panels.forEach(function(p){var on=p.id===id;p.hidden=!on;if(on)open=p;});
+    document.body.classList.toggle("locked",!!open);
+    fab.hidden=!!open;
+    if(open){open.scrollTop=0;open.querySelector(".back").focus({preventScroll:true});}
+    else if(opener){opener.focus({preventScroll:true});opener=null;}
+  }
+  document.querySelectorAll(".banner").forEach(function(b){b.addEventListener("click",function(){opener=b;});});
+  document.querySelectorAll("[data-close]").forEach(function(a){a.addEventListener("click",function(e){
+    e.preventDefault();
+    if(history.state&&history.state.panel)history.back();else{history.replaceState(null,"",location.pathname+location.search);route();}
+  });});
+  document.querySelectorAll(".banner").forEach(function(b){b.addEventListener("click",function(e){
+    e.preventDefault();history.pushState({panel:1},"",b.getAttribute("href"));route();
+  });});
+  window.addEventListener("popstate",route);window.addEventListener("hashchange",route);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&location.hash&&document.querySelector(".panel:not([hidden])"))document.querySelector(".panel:not([hidden]) [data-close]").click();});
+
   // Ocultar el botón fijo cuando la sección de contacto ya está a la vista
   var fab=document.getElementById("fab"),sec=document.getElementById("contacto");
   if("IntersectionObserver" in window){
     new IntersectionObserver(function(es){fab.classList.toggle("away",es[0].isIntersecting);},{threshold:0.05}).observe(sec);
   }
+  route();
 })();
 </script>
 </body>

@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Alem Briozzo;Facundo;;;
+FN:Facundo Alem Briozzo
+TITLE:Estudiante de Lic. en Organización Industrial (UTN FRCU)
+TEL;TYPE=CELL:+5493442544088
+EMAIL;TYPE=INTERNET:facundoalembriozzo@gmail.com
+URL:https://facundoalembriozzo-blip.github.io/cv/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/facundo-alem-briozzo-732745393
+ADR;TYPE=HOME:;;;Concepción del Uruguay;Entre Ríos;;Argentina
+NOTE:CV online: https://facundoalembriozzo-blip.github.io/cv/
+END:VCARD
