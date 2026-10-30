@@ -91,6 +91,28 @@ textarea{min-height:120px;resize:vertical}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.pdf{color:var(--fg);border-color:var(--line)}}
 .btn.save{background:var(--sheet);color:var(--fg);border:1px solid var(--line)}
 
+
+/* Contacto: tres accesos grandes + mensaje guiado en 3 pasos */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{display:grid;justify-items:center;gap:6px;padding:18px 8px 14px;background:var(--sheet);border:1px solid var(--line);border-radius:16px;color:var(--fg);text-decoration:none;text-align:center;-webkit-tap-highlight-color:transparent;transition:transform .15s,border-color .15s}
+.tile:active{transform:scale(.97)}
+@media (hover:hover){.tile:hover{border-color:var(--ink)}}
+.tile .logo{width:52px;height:52px;border-radius:14px}
+.tile .logo svg{width:28px;height:28px}
+.t-name{font-weight:700;font-size:15px;margin-top:4px}
+.t-sub{font-size:12px;color:var(--muted)}
+.btn.save{padding:12px 16px;font-size:15px}
+.compose{gap:16px}
+.step{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center}
+.step-body{display:grid;gap:8px;min-width:0}
+.step-body .label{margin:3px 0 0}
+.send3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sbtn{display:grid;justify-items:center;gap:6px;padding:12px 4px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);text-decoration:none;font-weight:700;font-size:13px;-webkit-tap-highlight-color:transparent}
+.sbtn:active{transform:scale(.97)}
+.logo.sm{width:34px;height:34px;border-radius:10px}
+.logo.sm svg{width:19px;height:19px}
+
 /* Más allá del CV: banners que abren un panel a pantalla completa */
 section.exp{margin-top:36px;display:grid;gap:12px}
 section.exp h2{margin-bottom:4px}
@@ -118,6 +140,7 @@ section.exp h2{margin-bottom:4px}
 .gallery figure.wide{grid-column:1/-1}
 .gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .gallery figure.tall img{aspect-ratio:3/4}
+.gallery figure.shot img{aspect-ratio:auto;object-fit:contain;border-bottom:1px solid var(--line)}
 .xp .gallery{margin-top:6px}
 .gallery figcaption{font-size:13px;color:var(--muted);padding:8px 10px}
 .xp{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:10px}
@@ -181,7 +204,8 @@ body.locked{overflow:hidden}
 
     <a class="banner exps" href="#experiencias" style="--img:url(fotos/ciudadania/prototipo.jpg)">
       <span class="kicker">Experiencias</span>
-      <span class="b-title">Desafío CiudadanIA, Rally de Innovación y Santander X Explorer</span>
+      <span class="b-title">Proyectos y competencias</span>
+      <span class="b-sub">MatApp · Desafío CiudadanIA · Rally de Innovación · Santander X Explorer</span>
       <span class="b-go">Ver más ›</span>
     </a>
   </section>
@@ -189,57 +213,58 @@ body.locked{overflow:hidden}
   <section class="contact" id="contacto" aria-labelledby="h-contacto">
     <div class="contact-head">
       <h2 id="h-contacto">Hablemos</h2>
-      <p class="lead">Estoy buscando mi próxima oportunidad laboral. Si tenés una propuesta, querés coordinar una entrevista o simplemente quedar en contacto, escribime por donde te quede más cómodo.</p>
+      <p class="lead">¿Una propuesta o una entrevista? Elegí por dónde.</p>
     </div>
 
-    <ul class="channels">
-      <li><a class="channel" href="https://wa.me/5493442544088" target="_blank" rel="noopener">
+    <div class="tiles">
+      <a class="tile" href="https://wa.me/5493442544088" target="_blank" rel="noopener">
         <span class="logo wa"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
-        <span class="txt"><span class="name">WhatsApp</span><span class="sub">+54 9 3442 54-4088</span></span>
-        <span class="go" aria-hidden="true">›</span>
-      </a></li>
-      <li><a class="channel" href="https://www.linkedin.com/in/facundo-alem-briozzo-732745393" target="_blank" rel="noopener">
+        <span class="t-name">WhatsApp</span><span class="t-sub">Chat directo</span>
+      </a>
+      <a class="tile" href="https://www.linkedin.com/in/facundo-alem-briozzo-732745393" target="_blank" rel="noopener">
         <span class="logo li"><svg aria-hidden="true"><use href="#i-li"/></svg></span>
-        <span class="txt"><span class="name">LinkedIn</span><span class="sub">Facundo Alem Briozzo</span></span>
-        <span class="go" aria-hidden="true">›</span>
-      </a></li>
-      <li><a class="channel" href="mailto:facundoalembriozzo@gmail.com">
+        <span class="t-name">LinkedIn</span><span class="t-sub">Mi perfil</span>
+      </a>
+      <a class="tile" href="mailto:facundoalembriozzo@gmail.com">
         <span class="logo gm"><svg aria-hidden="true"><use href="#i-gm"/></svg></span>
-        <span class="txt"><span class="name">Gmail</span><span class="sub">facundoalembriozzo@gmail.com</span></span>
-        <span class="go" aria-hidden="true">›</span>
-      </a></li>
-    </ul>
+        <span class="t-name">Gmail</span><span class="t-sub">Enviar mail</span>
+      </a>
+    </div>
 
-    <a class="btn save" href="facundo-alem-briozzo.vcf" download="Facundo Alem Briozzo.vcf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-4A3.5 3.5 0 0 0 4 17.5V19M9.5 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 8v6m3-3h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Guardar mi contacto en el celular</a>
+    <a class="btn save" href="facundo-alem-briozzo.vcf" download="Facundo Alem Briozzo.vcf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-4A3.5 3.5 0 0 0 4 17.5V19M9.5 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 8v6m3-3h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Guardar mi contacto</a>
 
-    <div class="card">
-      <h3>O dejame un mensaje</h3>
-      <p class="lead">Lo escribís acá y elegís por dónde mandarlo.</p>
+    <div class="card compose">
+      <h3>Dejame un mensaje en 3 pasos</h3>
 
-      <div>
-        <span class="label" id="l-motivo">Motivo</span>
-        <div class="chips" role="group" aria-labelledby="l-motivo" id="reasons"></div>
-      </div>
-
-      <div>
-        <label class="label" for="msg">Tu mensaje</label>
-        <textarea id="msg" placeholder="Ej.: Hola Facundo, vi tu CV y me gustaría coordinar una entrevista."></textarea>
-        <div class="err" id="err" hidden>Escribí el mensaje antes de enviarlo.</div>
-      </div>
-
-      <div>
-        <label class="label" for="who">Tu nombre y empresa (opcional)</label>
-        <input type="text" id="who" autocomplete="organization" placeholder="Ej.: Laura, RR. HH. de Acme">
-      </div>
-
-      <div class="send">
-        <a class="btn wa" id="send-wa" href="https://wa.me/5493442544088" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar por WhatsApp</a>
-        <div class="row2">
-          <a class="btn gm" id="send-gm" href="mailto:facundoalembriozzo@gmail.com"><svg aria-hidden="true"><use href="#i-gm"/></svg>Gmail</a>
-          <a class="btn li" id="send-li" href="https://www.linkedin.com/in/facundo-alem-briozzo-732745393" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
+      <div class="step">
+        <span class="num">1</span>
+        <div class="step-body">
+          <span class="label" id="l-motivo">Motivo</span>
+          <div class="chips" role="group" aria-labelledby="l-motivo" id="reasons"></div>
         </div>
-        <p class="ok" id="ok" hidden>Copié tu mensaje: pegalo en el chat de LinkedIn.</p>
-        <p class="note">En LinkedIn el mensaje se copia y se abre mi perfil para que lo pegues.</p>
+      </div>
+
+      <div class="step">
+        <span class="num">2</span>
+        <div class="step-body">
+          <label class="label" for="msg">Mensaje</label>
+          <textarea id="msg" placeholder="Ej.: Hola Facundo, me gustaría coordinar una entrevista."></textarea>
+          <div class="err" id="err" hidden>Escribí el mensaje antes de enviarlo.</div>
+          <input type="text" id="who" autocomplete="organization" aria-label="Tu nombre y empresa (opcional)" placeholder="Tu nombre y empresa (opcional)">
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">3</span>
+        <div class="step-body">
+          <span class="label">Enviar por</span>
+          <div class="send3">
+            <a class="sbtn" id="send-wa" href="https://wa.me/5493442544088" target="_blank" rel="noopener"><span class="logo wa sm"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>WhatsApp</a>
+            <a class="sbtn" id="send-gm" href="mailto:facundoalembriozzo@gmail.com"><span class="logo gm sm"><svg aria-hidden="true"><use href="#i-gm"/></svg></span>Gmail</a>
+            <a class="sbtn" id="send-li" href="https://www.linkedin.com/in/facundo-alem-briozzo-732745393" target="_blank" rel="noopener" title="Copia el mensaje y abre mi perfil"><span class="logo li sm"><svg aria-hidden="true"><use href="#i-li"/></svg></span>LinkedIn</a>
+          </div>
+          <p class="ok" id="ok" hidden>Mensaje copiado: pegalo en el chat de LinkedIn.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -294,6 +319,20 @@ body.locked{overflow:hidden}
       <span class="kicker">Experiencias</span>
       <h2 id="t-exp">Proyectos y competencias</h2>
     </header>
+
+    <article class="xp">
+      <div class="xp-meta"><span class="tag role">Proyecto propio</span><span class="tag">2026 · en uso</span><span class="tag">Aplicación web</span></div>
+      <h3>MatApp: organización académica en un solo lugar</h3>
+      <p>Vi que mis compañeros no tenían una herramienta cómoda para organizarse, así que decidí construirla por mi cuenta, fuera de cualquier exigencia de la facultad. Definí el problema y el alcance, aprendí lo que hacía falta y la llevé hasta que estuvo funcionando, con ayuda de herramientas de desarrollo asistido por inteligencia artificial.</p>
+      <p>MatApp reúne materias, horarios, exámenes, sesiones de estudio, objetivos y progreso del cuatrimestre, y suma un <strong>Copilot</strong> que ayuda a priorizar qué estudiar.</p>
+    <div class="gallery">
+      <figure class="wide shot"><img src="fotos/matapp/1-ingreso.jpg" alt="Pantalla de inicio de sesión de MatApp" loading="lazy" decoding="async"><figcaption>1 · Ingreso con email o con Google</figcaption></figure>
+      <figure class="wide shot"><img src="fotos/matapp/2-inicio.jpg" alt="Panel de inicio de MatApp con horas de cursada, exámenes y progreso del cuatrimestre" loading="lazy" decoding="async"><figcaption>2 · Inicio: el estado de la semana de un vistazo</figcaption></figure>
+      <figure class="wide shot"><img src="fotos/matapp/3-materias.jpg" alt="Tarjetas de materias en MatApp con horarios y progreso" loading="lazy" decoding="async"><figcaption>3 · Materias con horarios, exámenes y apuntes</figcaption></figure>
+      <figure class="wide shot"><img src="fotos/matapp/4-estudiar.jpg" alt="Pantalla Estudiar de MatApp con el próximo parcial y objetivos" loading="lazy" decoding="async"><figcaption>4 · Estudiar: qué toca hoy y cuánto falta para el parcial</figcaption></figure>
+      <figure class="wide shot"><img src="fotos/matapp/5-copilot.jpg" alt="Chat del Copilot de MatApp con sugerencias para organizarse" loading="lazy" decoding="async"><figcaption>5 · Copilot: ayuda para priorizar y organizar la semana</figcaption></figure>
+    </div>
+    </article>
 
     <article class="xp">
       <div class="xp-meta"><span class="tag">Desafío CiudadanIA · 2026</span><span class="tag">6 semanas</span><span class="tag win">1.º puesto</span></div>
