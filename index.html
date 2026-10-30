@@ -126,6 +126,12 @@ section.exp h2{margin-bottom:4px}
 .xp-meta{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
 .tag.win{background:#fff4d6;color:#7a5200}
+.tag.role{background:var(--ink);color:#fff}
+.web{background:#0e1726;color:#fff;border-radius:14px;padding:20px 18px;display:grid;gap:10px;justify-items:start;margin-top:4px}
+.web img{width:180px;height:auto}
+.web p{color:rgba(255,255,255,.8);font-size:15px}
+.web-links{display:flex;flex-wrap:wrap;gap:8px}
+.web-links a{color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:9px 14px;border:1px solid rgba(255,255,255,.3);border-radius:999px}
 .more{color:var(--ink);font-weight:700;text-decoration:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .more{color:var(--fg)}}
 body.locked{overflow:hidden}
@@ -304,12 +310,22 @@ body.locked{overflow:hidden}
     </article>
 
     <article class="xp">
-      <div class="xp-meta"><span class="tag">Rally de Innovación</span><span class="tag">28 horas</span><span class="tag win">1.º local · 8.º nacional</span></div>
+      <div class="xp-meta"><span class="tag role">Líder del equipo</span><span class="tag">Rally de Innovación</span><span class="tag">28 horas</span><span class="tag win">1.º local · 8.º nacional</span></div>
       <h3>ENJAMBRE: decisiones rápidas después de una catástrofe</h3>
-      <p>Veintiocho horas seguidas de competencia para resolver cómo usar y optimizar los recursos después de una catástrofe. Como líder del equipo, diseñamos ENJAMBRE, un sistema de apoyo a decisiones que coordina drones especializados, inteligencia artificial y unidades móviles para que Defensa Civil y los equipos de rescate actúen más rápido y con la información correcta.</p>
+      <p>Veintiocho horas seguidas de competencia para resolver cómo usar y optimizar los recursos después de una catástrofe. <strong>Fui el líder del equipo</strong> con el que creamos ENJAMBRE, un sistema de apoyo a decisiones que coordina drones especializados, inteligencia artificial y unidades móviles para que Defensa Civil y los equipos de rescate actúen más rápido y con la información correcta.</p>
       <p>Quedamos <strong>primeros a nivel local y octavos a nivel nacional</strong> entre 300 equipos.</p>
-
-      <a class="more" href="https://enjambreer.vercel.app/" target="_blank" rel="noopener">Ver el proyecto ↗</a>
+    <div class="gallery">
+      <figure class="wide"><img src="fotos/rally/equipo.jpg" alt="El equipo de ENJAMBRE sonríe alrededor de la mesa 4 con sus computadoras" loading="lazy" decoding="async"><figcaption>Nuestro equipo en la mesa 4, durante la noche del Rally</figcaption></figure>
+      <figure class="wide"><img src="fotos/rally/trabajando.jpg" alt="El equipo trabaja con sus computadoras durante el Rally de Innovación" loading="lazy" decoding="async"><figcaption>Trabajando en la solución</figcaption></figure>
+    </div>
+      <div class="web">
+        <img src="fotos/rally/enjambre-logo.png" alt="ENJAMBRE" width="280" height="51">
+        <p>Información en tiempo real. Decisiones que salvan vidas.</p>
+        <div class="web-links">
+          <a href="https://enjambreer.vercel.app/" target="_blank" rel="noopener">Visitar la web ↗</a>
+          <a href="https://www.youtube.com/watch?v=emdO-PWDAJ0" target="_blank" rel="noopener">Ver el video ↗</a>
+        </div>
+      </div>
     </article>
 
     <article class="xp">
